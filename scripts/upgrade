@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # Retrieve arguments
-domain=$(sudo yunohost app setting ffsync domain)
-path=$(sudo yunohost app setting ffsync path)
-db_pwd=$(sudo yunohost app setting  ffsync mysqlpwd)
+domain=$(sudo ynh_app_setting_get ffsync domain)
+path=$(sudo ynh_app_setting_get ffsync path)
+db_pwd=$(sudo ynh_app_setting_get ffsync mysqlpwd)
 db_user=ffsync
 final_path=/opt/yunohost/ffsync
 
 # Get secret variable
-secret=$(sudo yunohost app setting ffsync secret)
+secret=$(sudo ynh_app_setting_get ffsync secret)
 # Get from conf file if not defined
 if [[ -z $secret ]]
 then
 	secret=$(sudo grep "secret =" $final_path/syncserver.ini | cut -d" " -f3)
-	sudo yunohost app setting ffsync secret -v $secret
+	sudo ynh_app_setting_set ffsync secret $secret
 fi
 
 # Check Swap
@@ -81,5 +81,5 @@ sudo service ffsync restart
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service nginx reload
-sudo yunohost app setting ffsync skipped_uris -v "/"
+sudo ynh_app_setting_set ffsync skipped_uris "/"
 sudo yunohost app ssowatconf

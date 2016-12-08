@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Source app helpers
+. /usr/share/yunohost/helpers
+
 # Retrieve arguments
 domain=$1
 path=$2
@@ -7,7 +10,7 @@ path=$2
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a ffsync
 if [[ ! $? -eq 0 ]]; then
-    exit 1
+    ynh_die
 fi
 
 # Generate random password
@@ -18,11 +21,11 @@ db_user=ffsync
 
 # Initialize database and store mysql password for upgrade
 sudo yunohost app initdb $db_user -p $db_pwd
-sudo yunohost app setting ffsync mysqlpwd -v $db_pwd
+sudo ynh_app_setting_set ffsync mysqlpwd $db_pwd
 
 # Generate random password and save
 secret=$(head -c 20 /dev/urandom | sha1sum | cut -d " " -f1)
-sudo yunohost app setting ffsync secret -v $secret
+sudo ynh_app_setting_set ffsync secret $secret
 
 # Check depends installation
 sudo apt-get install make python-dev python-virtualenv -y
@@ -93,4 +96,4 @@ sudo service ffsync restart
 sudo yunohost app ssowatconf
 sudo service nginx restart
 sudo yunohost service add ffsync -l /var/log/ffsync.log
-sudo yunohost app setting ffsync skipped_uris -v "/"
+sudo ynh_app_setting_set ffsync skipped_uris "/"
