@@ -15,5 +15,7 @@ Once installed, reaching `http://domain.tld/path` should show a page explaining 
 From the `sources` directory, do as follows:
 
 `make build`
+
 `make test`
+
 `./local/bin/gunicorn --reload --paste syncserver.ini` instead of the classical `make serve` to take into account changes you will surely do by developping the app.
