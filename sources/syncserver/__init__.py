@@ -6,11 +6,8 @@ import os
 import logging
 from urlparse import urlparse, urlunparse
 
-import mimetypes
-
 from pyramid.response import Response
 from pyramid.events import NewRequest, subscriber
-from pyramid.view import view_config, render_view_to_response
 from pyramid.static import static_view
 
 import mozsvc.config
@@ -92,7 +89,7 @@ def includeme(config):
     config.include("syncstorage", route_prefix="/storage")
     config.include("tokenserver", route_prefix="/token")
 
-    # Add a top-level "it works!" view.
+    # Add a top-level explaination view.
     www = static_view(
         os.path.realpath(os.path.dirname(__file__)+"/"),
         use_subpath=True
