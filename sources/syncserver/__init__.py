@@ -6,8 +6,12 @@ import os
 import logging
 from urlparse import urlparse, urlunparse
 
+import mimetypes
+
 from pyramid.response import Response
 from pyramid.events import NewRequest, subscriber
+from pyramid.view import view_config, render_view_to_response
+from pyramid.static import static_view
 
 import mozsvc.config
 
@@ -89,11 +93,14 @@ def includeme(config):
     config.include("tokenserver", route_prefix="/token")
 
     # Add a top-level "it works!" view.
-    def itworks(request):
-        return Response("it works!")
-
-    config.add_route('itworks', '/')
-    config.add_view(itworks, route_name='itworks')
+    www = static_view(
+        os.path.realpath(os.path.dirname(__file__)+"/"),
+        use_subpath=True
+    )
+    # Documentation for Hybrid routing can be found here
+    # http://docs.pylonsproject.org/projects/pyramid/en/1.0-branch/narr/hybrid.html#using-subpath-in-a-route-pattern
+    config.add_route('index', '/*subpath', 'www') # subpath is a reserved word
+    config.add_view(www, route_name='index')
 
 
 @subscriber(NewRequest)
