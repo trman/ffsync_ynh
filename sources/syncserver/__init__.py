@@ -91,7 +91,7 @@ def includeme(config):
 
     # Add a top-level explaination view.
     www = static_view(
-        os.path.realpath(os.path.dirname(__file__)+"/"),
+        os.path.realpath(os.path.dirname(__file__)+"/page/"),
         use_subpath=True
     )
     # Documentation for Hybrid routing can be found here
