@@ -21,11 +21,11 @@ db_user=ffsync
 
 # Initialize database and store mysql password for upgrade
 sudo yunohost app initdb $db_user -p $db_pwd
-sudo ynh_app_setting_set ffsync mysqlpwd $db_pwd
+ynh_app_setting_set ffsync mysqlpwd $db_pwd
 
 # Generate random password and save
 secret=$(head -c 20 /dev/urandom | sha1sum | cut -d " " -f1)
-sudo ynh_app_setting_set ffsync secret $secret
+ynh_app_setting_set ffsync secret $secret
 
 # Check depends installation
 sudo apt-get install make python-dev python-virtualenv -y
@@ -96,4 +96,4 @@ sudo service ffsync restart
 sudo yunohost app ssowatconf
 sudo service nginx restart
 sudo yunohost service add ffsync -l /var/log/ffsync.log
-sudo ynh_app_setting_set ffsync skipped_uris "/"
+ynh_app_setting_set ffsync skipped_uris "/"
