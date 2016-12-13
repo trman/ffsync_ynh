@@ -6,7 +6,6 @@ import os
 import logging
 from urlparse import urlparse, urlunparse
 
-from pyramid.response import Response
 from pyramid.events import NewRequest, subscriber
 from pyramid.static import static_view
 
@@ -96,7 +95,7 @@ def includeme(config):
     )
     # Documentation for Hybrid routing can be found here
     # http://docs.pylonsproject.org/projects/pyramid/en/1.0-branch/narr/hybrid.html#using-subpath-in-a-route-pattern
-    config.add_route('index', '/*subpath', 'www') # subpath is a reserved word
+    config.add_route('index', '/*subpath', 'www')  # subpath is a reserved word
     config.add_view(www, route_name='index')
 
 

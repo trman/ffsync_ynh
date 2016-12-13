@@ -35,14 +35,14 @@ help support Mozilla.
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Mozilla Firefox Web Browser — Gardez votre Firefox synchronisé — Mozilla</title>
+    <title>Firefox Sync Server — Keep Synced on your own</title>
     <meta name="description" content="">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mozilla">
     <meta property="og:locale" content="fr">
     <meta property="og:url" content="https://www.mozilla.org/fr/firefox/sync/">
     <meta property="og:image" content="https://www.mozilla.org/media/img/firefox/template/page-image.af8027a425de.png">
-    <meta property="og:title" content="Mozilla Firefox Web Browser — Gardez votre Firefox synchronisé">
+    <meta property="og:title" content="Firefox Sync Server">
     <meta property="og:description" content="">
     <meta property="fb:page_id" content="14696440021">
     <meta name="twitter:card" content="summary">
@@ -618,9 +618,31 @@ help support Mozilla.
             identity.sync.tokenserver.uri: http://{this page’s url}/token/1.0/sync/1.5
         </code>
           <hr><p>
-            Since Firefox 33, Firefox for Android has supported custom sync servers. To configure
-            Firefox for Android, see the blog post How to connect Firefox for Android to self-hosted
-            Firefox Account and Firefox Sync servers.
+            Since Firefox 33, Firefox for Android has supported custom sync servers,
+            should be a breeze.
+        </p>
+        <h3>Solving problems with Android</h3>
+        <p>The sure-fire way to know what Sync on Android is really doing is to
+          observe the Android device log using adb logcat. You’ll want to bump 
+          your log-level:
+		<hr><code>
+		adb shell setprop log.tag.FxAccounts VERBOSE
+		</code><hr>
+		<p>
+		Then, you can observe the log using:
+		</p>
+		<hr><code>
+		adb logcat | grep FxAccounts
+		</code><hr>
+		<p>
+		It’s best to observe the log while you force a sync from the Android Settings App. You should see output like:
+		</p>
+		<hr><pre style="overflow:auto;word-wrap:normal;white-space:pre">
+D FxAccounts(...) fennec :: BaseResource :: HTTP GET https://token.stage.mozaws.net/1.0/sync/1.5
+...
+D FxAccounts(...) fennec :: BaseResource :: HTTP GET https://sync-4-us-east-1.stage.mozaws.net/</pre><hr>
+See <a href="http://160.twinql.com/how-to-file-a-good-android-sync-bug/">how to file a good Android Sync bug</a> for details.
+        	
         </p>
       </header>
 
@@ -637,7 +659,7 @@ help support Mozilla.
       </header>
       <aside>
         <p>
-            To properly have all your data on that server, make sure each and device is setup to use this server. The list of connected devices can be seen on your Firefox Account page.
+            To properly have all your data on that server, make sure each and every of your Firefox installations is setup to use this server. The list of connected devices can be seen on your Firefox Account page.
         </p>
       </aside>
     </div>
