@@ -37,23 +37,6 @@ help support Mozilla.
 
     <title>Firefox Sync Server — Keep Synced on your own</title>
     <meta name="description" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Mozilla">
-    <meta property="og:locale" content="fr">
-    <meta property="og:url" content="https://www.mozilla.org/fr/firefox/sync/">
-    <meta property="og:image" content="https://www.mozilla.org/media/img/firefox/template/page-image.af8027a425de.png">
-    <meta property="og:title" content="Firefox Sync Server">
-    <meta property="og:description" content="">
-    <meta property="fb:page_id" content="14696440021">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@firefox">
-    <meta name="twitter:domain" content="mozilla.org">
-    <meta name="twitter:app:name:googleplay" content="Firefox">
-    <meta name="twitter:app:id:googleplay" content="org.mozilla.firefox">
-    <meta name="twitter:app:name:iphone" content="Firefox">
-    <meta name="twitter:app:id:iphone" content="989804926">
-    <meta name="twitter:app:name:ipad" content="Firefox">
-    <meta name="twitter:app:id:ipad" content="989804926">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://www.mozilla.org/media/img/firefox/ios-icon-180.7a8401f21915.png">
     <link rel="icon" type="image/png" sizes="196x196" href="https://www.mozilla.org/media/img/firefox/favicon-196.223e1bcaf067.png">
     <link rel="shortcut icon" href="https://www.mozilla.org/media/img/firefox/favicon.dc6635050bf5.ico">
@@ -143,9 +126,6 @@ help support Mozilla.
     <link rel="alternate" hreflang="zh-TW" href="https://www.mozilla.org/zh-TW/firefox/sync/" title="正體中文 (繁體)">
 
 
-
-
-
     <!--[if lte IE 8]>
 
       <script src="/media/js/libs/html5shiv.d580a4cd1cb4.js"></script>
@@ -167,32 +147,15 @@ help support Mozilla.
 
     <!--<![endif]-->
 
-
-
-
-
-
-
-
-
-
-
-      <!-- Google Tag Manager -->
-<!-- Customized for Mozilla.org-->
-<!-- Region Container: NONE -->
-<!-- Rollup Container: System Filtered -->
-<!-- Site Container: NONE -->
-
-
   <script type="text/javascript" src="sync_files/gtm-snippet-bundle.js" charset="utf-8"></script>
 
 <!-- End Google Tag Manager -->
 
   <style type="text/css"></style></head>
 
-  <body id="firefox-sync" class="html-ltr    sky state-fx-31-signed-in">
-    <div id="strings" data-global-close="Fermer" data-global-next="Suivant" data-global-previous="Précédent" data-global-update-firefox="Mettre à jour Firefox"></div>
-    <div id="outer-wrapper">
+  <body id="firefox-sync" class="html-ltr sky state-fx-31-signed-in">
+    <div id="strings" data-global-close="Close" data-global-next="Next" data-global-previous="Previous" data-global-update-firefox="Update Firefox"></div>
+    <div id="outer-wrapper" style='background:url("${public_url}/media/img/sandstone/bg-gradient-sky.7ea325995978.png") repeat-x,url("${public_url}/media/img/sandstone/grain.855f29e0c686.png") repeat,#eee;'>
 
 
 
@@ -201,14 +164,14 @@ help support Mozilla.
 
 <div class="sticky-wrapper" style=""><header id="fxfamilynav-header" class="fxfamilynav-header dark">
   <div class="container">
-    <a href="https://www.mozilla.org/fr/firefox/products/" class="fxfamilynav-logo">Firefox</a>
+    <a href="https://www.mozilla.org/fr/firefox/products/" class="fxfamilynav-logo" style="background-image:url('${public_url}/media/img/firefox/family/nav-sprite.56fbf5a8d218.png') !important;">Firefox</a>
     <nav id="fxfamilynav" class="fxfamilynav" role="navigation">
       <ul id="fxfamilynav-primary" class="primary-nav">
         <li class="related active">
           <a data-id="features" href="https://www.mozilla.org/fr/firefox/features/" class="primary-link" data-link-type="nav" data-link-name="Features"><div>Self-Hosted Synchronisation Server</div></a>
         </li>
       <li class="">
-          <a data-id="features" style="width:300px;max-width:350px;" href="#" class="primary-link" data-link-type="nav" data-link-name="Features"><div>Running Mozilla’s Sync-1.5 Server</div></a>
+          <a data-id="features" style="width:300px;max-width:350px;" href="#howto" class="primary-link" data-link-type="nav" data-link-name="Features"><div>Running Mozilla’s Sync-1.5 Server</div></a>
       </li>
       </ul>
     </nav><div id="fxfamilynav-adjunctnav" class="fxfamilynav-adjunctnav">
@@ -244,18 +207,12 @@ help support Mozilla.
 
 
     <div id="tabzilla">
-      <a href="https://www.mozilla.org/fr/" data-link-type="nav" data-link-name="tabzilla">Mozilla</a>
+      <a href="https://www.mozilla.org/fr/" data-link-type="nav" data-link-name="tabzilla" style="background-image:url('${public_url}/media/img/tabzilla/tabzilla-static.953a65a1f4a4.png') !important;">Mozilla</a>
     </div>
   </div></header></div>
 
+
         <div id="wrapper">
-
-
-
-
-
-
-
 
             <div class="sync-anim on complete">
                 <div class="device laptop">
@@ -300,7 +257,7 @@ help support Mozilla.
             </header>
 
             <section class="primary">
-                <div class="inner-wrapper">
+                <div id="howto" class="inner-wrapper">
                     <div class="container">
 
 
@@ -351,13 +308,6 @@ help support Mozilla.
                             </div>
 
                             <div class="show-not-fx show-fx-28-older">
-
-
-
-
-
-
-
 
 
 
@@ -595,9 +545,7 @@ help support Mozilla.
                 </div>
             </section>
 
-        </div>
 
-</section>
 
 <section class="secondary">
   <div class="inner-wrapper">
@@ -615,7 +563,7 @@ help support Mozilla.
             with a path of <code>"token/1.0/sync/1.5"</code>:
         </p>
           <hr><code>
-            identity.sync.tokenserver.uri: http://{this page’s url}/token/1.0/sync/1.5
+            identity.sync.tokenserver.uri: ${public_url}/token/1.0/sync/1.5
         </code>
           <hr><p>
             Since Firefox 33, Firefox for Android has supported custom sync servers,
@@ -651,7 +599,7 @@ See <a href="http://160.twinql.com/how-to-file-a-good-android-sync-bug/">how to 
 </section>
 
 <section class="cta">
-  <div class="inner-wrapper">
+  <div class="inner-wrapper" style='background-image:url("${public_url}/media/img/firefox/sync/device-lineup.a60618c7dacb.png") !important;'>
     <div class="container">
       <header>
         <h3>Change the Sync server on each installation</h3>
@@ -671,11 +619,10 @@ See <a href="http://160.twinql.com/how-to-file-a-good-android-sync-bug/">how to 
 
 
 
-
               <footer id="colophon" class="">
         <nav class="row">
           <div class="col col-1">
-            <div class="logo"><a href="https://www.mozilla.org/fr/" data-link-type="footer" data-link-name="Mozilla">Mozilla</a></div>
+            <div class="logo"><a href="https://www.mozilla.org/fr/" data-link-type="footer" data-link-name="Mozilla" style='background:url("${public_url}/media/img/sandstone/footer-mozilla.fafef0912042.png") !important;'>Mozilla</a></div>
             <p class="license">Portions of this content are ©1998–2016 by individual mozilla.org contributors. Content available under a <a href="https://www.mozilla.org/fr/foundation/licensing/website-content/">Creative Commons license</a>.</p>
           </div>
           <div class="col col-2">

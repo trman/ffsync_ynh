@@ -8,6 +8,9 @@ from urlparse import urlparse, urlunparse
 
 from pyramid.events import NewRequest, subscriber
 from pyramid.static import static_view
+from pyramid.view import view_config
+from pyramid.renderers import render, render_to_response
+from pyramid.response import Response
 
 import mozsvc.config
 
@@ -87,8 +90,19 @@ def includeme(config):
     config.scan("syncserver")
     config.include("syncstorage", route_prefix="/storage")
     config.include("tokenserver", route_prefix="/token")
+    config.include('pyramid_chameleon')
 
     # Add a top-level explaination view.
+    # First view, available at http://localhost:6543/
+    def page(request):
+		result = render('page/index.pt',
+		                {'public_url':public_url},
+		                request=request)
+		response = Response(result)
+		return response
+    config.add_route('page', '/')
+    config.add_view(page, route_name='page')
+    
     www = static_view(
         os.path.realpath(os.path.dirname(__file__)+"/page/"),
         use_subpath=True
