@@ -36,9 +36,6 @@ then
 	sudo swapon $tmp_swap_file
 fi
 
-# Modify assets to take path into account
-sudo find ../sources/syncserver/page/sync_files/ -type f -exec sed -i -e "s@media\/img@$path\/media\/img@g" {} \;
-
 # Copy files to the right place
 sudo mkdir -p $final_path
 sudo cp -a ../sources/* $final_path
@@ -60,6 +57,8 @@ sudo sed -i -e "s@changesecret@$secret@g" $final_path/syncserver.ini
 sudo sed -i "s/yunouser/$db_user/g" $final_path/syncserver.ini
 sudo sed -i "s/yunopass/$db_pwd/g" $final_path/syncserver.ini
 sudo sed -i "s/yunobase/$db_user/g" $final_path/syncserver.ini
+sudo sed -i -e "s@media\/img@$path\/media\/img@g" $final_path/syncserver/page/sync_files/firefox_sync-bundle.css
+sudo sed -i -e "s@media\/img@$path\/media\/img@g" $final_path/syncserver/page/sync_files/responsive-bundle.css
 
 # stop service before upgrade
 sudo service ffsync stop
