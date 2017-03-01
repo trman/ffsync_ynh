@@ -1,9 +1,12 @@
 #!/bin/bash
 
+# Source app helpers
+. /usr/share/yunohost/helpers
+
 db_user=ffsync
 db_name=ffsync
 root_pwd=$(sudo cat /etc/yunohost/mysql)
-domain=$(sudo yunohost app setting ffsync domain)
+domain=$(ynh_app_setting_get ffsync domain)
 
 mysql -u root -p$root_pwd -e "DROP DATABASE $db_name ; DROP USER $db_user@localhost ;"
 sudo rm -rf /opt/yunohost/ffsync
