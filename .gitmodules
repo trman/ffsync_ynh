@@ -1,0 +1,3 @@
+[submodule "sources_orig"]
+	path = sources
+	url = https://github.com/mozilla-services/syncserver
