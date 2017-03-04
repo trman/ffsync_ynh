@@ -36,6 +36,10 @@ then
 	sudo swapon $tmp_swap_file
 fi
 
+# Patch the 'source' submodule with the 'patch' directory
+git submodule update --recursive
+sudo cup -a ../patch/sources/* ../sources
+
 # Modify assets to take path into account 
 sudo find ../sources/syncserver/page/sync_files/ -type f -exec sed -i -e "s@media\/img@$path\/media\/img@g" {} \; 
 
