@@ -37,6 +37,7 @@ then
 fi
 
 # Patch the 'source' submodule with the 'patch' directory
+git submodule init
 git submodule update --recursive
 sudo cup -a ../patch/sources/* ../sources
 

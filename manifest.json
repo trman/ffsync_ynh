@@ -1,16 +1,16 @@
 {
     "name": "Firefox Sync Server",
     "id": "ffsync",
-    "url": "https://github.com/abeudin/ffsync_ynh",
+    "url": "https://github.com/rigelk/ffsync_ynh",
     "packaging_format": 1,
     "description": {
         "en": "Mozilla’s Sync-Server to host your Firefox account data",
         "fr": "Le serveur de synchronisation de Mozilla, pour héberger vos données Firefox"
     },
     "maintainer": {
-        "name": "beudbeud",
-        "email": "beudbeud@beudibox.fr",
-        "url": "https://github.com/balu-/FSyncMS"
+        "name": "rigelk",
+        "email": "par@rigelk.eu",
+        "url": "https://rigelk.eu"
     },
     "requirements": {
         "yunohost": ">> 2.4.0"
