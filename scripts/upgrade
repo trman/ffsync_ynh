@@ -39,7 +39,7 @@ fi
 # Patch the 'source' submodule with the 'patch' directory
 git submodule init
 git submodule update --recursive
-sudo cup -a ../patch/sources/* ../sources
+sudo cp -a ../patch/sources/* ../sources
 
 # Modify assets to take path into account 
 sudo find ../sources/syncserver/page/sync_files/ -type f -exec sed -i -e "s@media\/img@$path\/media\/img@g" {} \; 
@@ -51,7 +51,6 @@ sudo cp ../conf/ffsync /etc/init.d/
 sudo cp ../conf/ffsync.logrotate /etc/logrotate.d/ffsync
 
 # Set permissions to ffsync directory
-sudo useradd ffsync -d $final_path
 sudo chown ffsync:ffsync -R $final_path
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
@@ -74,7 +73,7 @@ sudo service ffsync stop
 cd $final_path && sudo make build && sudo ./local/bin/easy_install gunicorn
 
 # Disable swapfile
-if [ -z ${tmp_swap_file+x} ];
+if [ -n ${tmp_swap_file+x} ];
 then
         sudo swapoff $tmp_swap_file
         sudo rm -f $tmp_swap_file
