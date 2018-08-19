@@ -1,7 +1,7 @@
 {
     "packaging_format": 1,
-    "name": "Firefox Sync Server",
-    "id": "ffsyncU",
+    "name": "Firefox Sync Server up",
+    "id": "ffsyncu",
     "url": "https://github.com/trman/ffsync_ynh",
     "description": {
         "en": "Mozilla’s Sync-Server to host your Firefox account data",
