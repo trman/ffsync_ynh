@@ -1,5 +1,5 @@
 {
-    "name": "Firefox Sync Server Up",
+    "name": "Firefox Sync Server",
     "id": "ffsyncU",
     "url": "https://github.com/trman/ffsync_ynh",
     "packaging_format": 1,
