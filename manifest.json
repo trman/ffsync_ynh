@@ -1,6 +1,6 @@
 {
     "name": "Firefox Sync Server",
-    "id": "ffsyncU",
+    "id": "ffsync",
     "url": "https://github.com/trman/ffsync_ynh",
     "packaging_format": 1,
     "description": {
