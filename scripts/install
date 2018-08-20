@@ -58,7 +58,7 @@ sudo ls -al > /var/log/errlu.log
 cd ../
 sudo pwd > /var/log/errlj.log
 sudo ls -al > /var/log/errljj.log
-git init
+git submodule sync 
 git submodule init
 git submodule update --recursive
 sudo pwd > /var/log/errljq.log
