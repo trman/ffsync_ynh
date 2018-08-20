@@ -50,6 +50,9 @@ ynh_app_setting_set ffsync secret $secret
 # Check depends installation
 #sudo apt-get install make python-dev python-virtualenv -y
 
+sudo pwd
+sudo ls
+
 # Patch the 'source' submodule with the 'patch' directory
 git submodule init
 git submodule update --recursive
@@ -88,11 +91,11 @@ sudo sed -i -e "s@media\/img@$path\/media\/img@g" $final_path/syncserver/page/sy
 cd $final_path && sudo make build && sudo ./local/bin/easy_install gunicorn
 
 # Disable swapfile
-#if [ -z ${tmp_swap_file+x} ];
-#then
- #       sudo swapoff $tmp_swap_file
-#        sudo rm -f $tmp_swap_file
-#fi
+if [ -z ${tmp_swap_file+x} ];
+then
+        sudo swapoff $tmp_swap_file
+        sudo rm -f $tmp_swap_file
+fi
 
 # Fix permission
 sudo find $final_path/ -type d -exec chmod 2755 {} \;
