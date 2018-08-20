@@ -62,7 +62,7 @@ git submodule init
 git submodule update --recursive
 cd ../scripts
 #sudo cp -a ../patch/sources/* ../sources 
-cd script/
+
 # Modify assets to take path into account
 #sudo find ../sources/syncserver/page/sync_files/ -#type f -exec sed -i -e #"s@media\/img@$path\/media\/img@g" {} \;
 
