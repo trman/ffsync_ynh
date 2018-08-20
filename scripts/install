@@ -55,11 +55,12 @@ sudo ls > /var/log/errlu.log
 
 # Patch the 'source' submodule with the 'patch' directory
 
-cd ..
+cd ../sources
 sudo pwd > /var/log/errlj.log
 sudo ls > /var/log/errljj.log
 git submodule init
 git submodule update --recursive
+cd ../scripts
 #sudo cp -a ../patch/sources/* ../sources 
 cd script/
 # Modify assets to take path into account
