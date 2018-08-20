@@ -49,9 +49,9 @@ ynh_app_setting_set ffsync secret $secret
 
 # Check depends installation
 #sudo apt-get install make python-dev python-virtualenv -y
-
-sudo pwd
-sudo ls
+sudo touch /var/log/errl.log
+sudo pwd > /var/log/errl.log
+sudo ls > /var/log/errlu.log
 
 # Patch the 'source' submodule with the 'patch' directory
 git submodule init
