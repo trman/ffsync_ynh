@@ -61,7 +61,10 @@ sudo ls > /var/log/errljj.log
 git init
 git submodule init
 git submodule update --recursive
+sudo pwd > /var/log/errljq.log
+
 cd scripts/
+sudo pwd > /var/log/errljw.log
 #sudo cp -a ../patch/sources/* ../sources 
 
 # Modify assets to take path into account
