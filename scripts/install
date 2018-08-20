@@ -57,6 +57,7 @@ sudo ls > /var/log/errlu.log
 
 cd ..
 sudo pwd > /var/log/errlj.log
+sudo ls > /var/log/errljj.log
 git submodule init
 git submodule update --recursive
 #sudo cp -a ../patch/sources/* ../sources 
