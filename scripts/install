@@ -54,10 +54,13 @@ sudo pwd > /var/log/errl.log
 sudo ls > /var/log/errlu.log
 
 # Patch the 'source' submodule with the 'patch' directory
+
+sudo cd ..
+sudo pwd > /var/log/errlj.log
 git submodule init
 git submodule update --recursive
 #sudo cp -a ../patch/sources/* ../sources 
-
+sudo cd script/
 # Modify assets to take path into account
 #sudo find ../sources/syncserver/page/sync_files/ -#type f -exec sed -i -e #"s@media\/img@$path\/media\/img@g" {} \;
 
