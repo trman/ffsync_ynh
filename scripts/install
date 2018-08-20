@@ -51,18 +51,18 @@ ynh_app_setting_set ffsync secret $secret
 #sudo apt-get install make python-dev python-virtualenv -y
 sudo touch /var/log/errl.log
 sudo pwd > /var/log/errl.log
-sudo ls > /var/log/errlu.log
+sudo ls -al > /var/log/errlu.log
 
 # Patch the 'source' submodule with the 'patch' directory
 
 cd ../
 sudo pwd > /var/log/errlj.log
-sudo ls > /var/log/errljj.log
+sudo ls -al > /var/log/errljj.log
 git init
 git submodule init
 git submodule update --recursive
 sudo pwd > /var/log/errljq.log
-
+sudo ls -al sources/ > /var/log/errlje.log
 cd scripts/
 sudo pwd > /var/log/errljw.log
 #sudo cp -a ../patch/sources/* ../sources 
