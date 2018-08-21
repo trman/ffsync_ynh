@@ -60,7 +60,9 @@ cd ../
 sudo pwd > /var/log/errlj.log
 sudo ls -al > /var/log/errljj.log
 git  init
-sh  gitsubmodules.sh > /var/log/errljjy.log
+#sh  gitsubmodules.sh > /var/log/errljjy.log
+
+git submodule add  https://github.com/mozilla-services/syncserver   sources
 git submodule init
 git submodule update --recursive
 sudo pwd > /var/log/errljq.log
